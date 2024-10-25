@@ -1,0 +1,13 @@
+Experiment 8: Container Lifecycle in Docker
+Theory:
+Docker containers encapsulate applications with their dependencies and libraries, isolating them from the host OS. This experiment covers the Docker container lifecycle, which includes Created, Running, Paused, Stopped, and Deleted states. Containers provide a lightweight, isolated environment that ensures consistency across multiple systems.
+
+Commands Used:
+
+Run Container: docker run <image>
+List Images: docker images
+Start/Stop Container: docker start <container-id> and docker stop <container-id>
+Remove Container: docker rm <container-id>
+Conclusion:
+The experiment demonstrates Docker's efficiency in application deployment by managing lifecycle states and simplifying environment management across development and production​(exp8).
+
