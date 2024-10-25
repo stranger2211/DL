@@ -1,0 +1,13 @@
+Experiment 2: Git Installation and Repository Management​(exp2)
+Theory:
+Git is a distributed version control system (VCS) used to track changes in source code during software development. It enables multiple developers to collaborate on the same project without conflicts. Git maintains a history of all changes, allowing rollback to previous versions when necessary. It supports both local and remote repositories, with GitHub being a popular hosting service for remote repositories.
+
+Key commands:
+
+git init: Initializes a new Git repository.
+git add <file>: Stages a file for commit.
+git commit -m "message": Commits the staged files to the repository with a message.
+git push: Pushes the local commits to the remote repository.
+git log: Displays the commit history.
+Conclusion:
+In this experiment, we successfully installed Git and managed a local and remote repository. We understood how to track changes, commit files, and push them to a remote repository like GitHub. Git ensures effective collaboration and version control in software development.
