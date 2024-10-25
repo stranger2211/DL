@@ -1,0 +1,9 @@
+Experiment 7: Selenium Automation
+
+Objective: Automate test cases using Selenium IDE.
+Theory: Selenium IDE records browser interactions, and scripts can be saved and replayed across browsers. It’s essential for automating functional testing and supports continuous integration tools like Jenkins.
+Commands:
+Start recording: Select "Start Recording" in IDE.
+Stop recording: Select "Stop Recording" after the test is complete.
+Playback: Click "Run Current Test" to execute recorded actions.
+Conclusion: Demonstrated automation of test cases using Selenium, showcasing browser compatibility and streamlined testing workflows​(exp7).
