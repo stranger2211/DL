@@ -1,0 +1,13 @@
+Experiment 5: Jenkins CI/CD Pipeline with Tomcat​(exp5)
+Theory:
+In this experiment, we created and configured a Continuous Integration/Continuous Deployment (CI/CD) pipeline in Jenkins to deploy an application on a Tomcat server. Jenkins pipelines automate the software lifecycle from building to testing and deploying the application.
+
+Steps:
+
+Configure Jenkins and integrate it with Git.
+Set up a Jenkins pipeline to compile, test, and package the application into a .war file.
+Install Tomcat server, configure Jenkins to deploy the .war file to Tomcat automatically.
+The final step automates the deployment of the application onto the Tomcat server, ensuring smooth Continuous Deployment.
+Conclusion:
+This experiment demonstrated the creation of a Jenkins CI/CD pipeline to deploy a web application on a Tomcat server. We explored the stages of building, testing, and deploying applications in an automated workflow, showing how pipelines improve the software deployment process.
+
