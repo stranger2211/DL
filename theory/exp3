@@ -1,0 +1,11 @@
+Experiment 3: Version Control with Git
+
+Objective: Implement a version control system using Git.
+Theory: Git, a distributed VCS, manages code versions and allows for easy tracking and collaboration. Common commands include git init, git add, git commit, git branch, and git merge.
+Commands:
+git init - Initializes a new Git repository.
+git add <file> - Stages changes.
+git commit -m "<message>" - Commits staged changes.
+git branch <branch-name> - Creates a new branch.
+git merge <branch-name> - Merges branches.
+Conclusion: Gained insights on Git branching and merging, which facilitates collaborative development​(exp3).
