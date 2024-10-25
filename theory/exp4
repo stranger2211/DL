@@ -1,0 +1,13 @@
+Experiment 4: Jenkins Installation and Continuous Integration with Maven​(exp4)
+Theory:
+Jenkins is an open-source automation tool used for Continuous Integration (CI). It automates building, testing, and deploying code. Jenkins integrates with version control systems like Git and build tools like Maven. Continuous Integration ensures that code changes are automatically tested and integrated, allowing for early detection of issues.
+
+Steps:
+
+Install Jenkins and Java Development Kit (JDK).
+Configure Jenkins for CI/CD by linking it with Git and Maven.
+Set up jobs to automate building and testing of applications.
+Jenkins allows scheduling automated builds and provides notifications in case of build failures.
+Conclusion:
+In this experiment, Jenkins was installed and configured for continuous integration using Maven. By automating the build and test processes, Jenkins ensures efficient and consistent development practices. We learned how to integrate Jenkins with version control (Git) and perform automated tests and builds.
+
