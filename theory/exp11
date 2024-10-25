@@ -1,0 +1,9 @@
+Experiment 11: Deploying LAMP Stack Using Ansible
+
+Objective: Deploy a web application by setting up a LAMP stack using an Ansible playbook.
+Theory: LAMP (Linux, Apache, MySQL, PHP) is an open-source stack for web development. Ansible playbooks automate tasks on remote hosts, simplifying the setup of environments.
+Commands:
+ansible-playbook <playbook_name> - Runs an Ansible playbook.
+git clone <repo_url> - Clones code from a repository.
+service apache2 status - Verifies Apache status.
+Conclusion: Successfully provisioned and deployed a LAMP stack application using Ansible, demonstrating automation in deployment​(exp11).
