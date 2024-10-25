@@ -1,0 +1,12 @@
+Experiment 10: Ansible Installation on AWS Instances
+Theory:
+Ansible is a configuration management tool that automates software provisioning and application deployment. It operates via a Controller (Master) and Inventory (list of hosts to be managed). Using YAML-based playbooks, Ansible allows for flexible configuration across multiple nodes.
+
+Commands Used:
+
+Install Ansible: apt-get install ansible
+Setup SSH: ssh-keygen -t rsa for secure key-based access
+Run Playbook: ansible -m ping all to test connectivity
+Conclusion:
+This setup ensures automated deployment, reduces human error, and allows for consistent configurations across systems​(exp10).
+
