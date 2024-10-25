@@ -1,0 +1,12 @@
+Experiment 6: Jenkins Master-Slave Architecture with Scaling
+Theory:
+Jenkins follows a Master-Slave architecture to distribute workload across multiple environments. The Master node is responsible for managing tasks, scheduling jobs, and monitoring slaves, while Slave nodes perform the tasks as directed by the Master. This setup is essential for handling multiple projects that may require different environments and resources, as the Master node offloads specific jobs to Slave nodes based on their configurations.
+
+Commands Used:
+
+Manage Nodes: Manage Jenkins -> Manage Nodes
+Create Node: New Node -> Permanent Agent
+Allow Firewall Port: sudo ufw allow 50000/tcp to enable agent communication
+Build Job: Build Now for task execution on configured agents
+Conclusion:
+This architecture enhances Jenkins' performance by delegating tasks to specialized nodes, reducing load on the Master node, and ensuring efficient resource allocation​(exp6).
