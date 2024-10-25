@@ -1,0 +1,14 @@
+Experiment 9: Building a Docker Image for a Web Application
+Theory: A Dockerfile is a text file containing instructions to build a Docker image, which packages all necessary components for a web application, including code, libraries, runtime, and configurations, in a portable container. Key Dockerfile commands are:
+
+FROM: Sets the base image (e.g., FROM nginx).
+COPY: Copies files from the host into the container (e.g., COPY index.html /usr/share/nginx/html/).
+RUN: Executes commands during the image build, like installing software (e.g., RUN apt install nano).
+CMD: Specifies the command that runs when the container starts, such as launching a web server.
+Procedure:
+
+Write the Dockerfile with necessary instructions.
+Use docker build to create an image.
+Deploy the image as a container.
+Host the application on localhost and verify in the browser.
+Conclusion: This experiment demonstrated creating and running Docker containers using various Dockerfile commands, effectively setting up a web server image.
