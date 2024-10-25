@@ -1,0 +1,60 @@
+Step1: Install Docker using the convenience script
+Take sudo privileges.
+
+sudo su
+cd Desktop/Chirag
+curl -fsSL https://get.docker.com -o get-docker.sh 
+sudo sh get-docker.sh
+ls get-docker.sh
+cat get-docker.sh
+
+Step2: To verify docker is installed or not:
+# docker version
+docker --version
+docker -V
+
+DOCKER COMMANDS:
+docker login
+docker run hello-world	
+docker run -it ubuntu bash
+docker images
+docker pull mysql
+docker ps
+docker ps -a
+
+# to get the container running
+
+docker run -it ubuntu bash
+docker ps -a
+docker run -it ubuntu bash
+ls
+docker run -it ubuntu bash
+docker ps -a
+
+docker rm <container id>
+docker ps -a
+docker images
+docker rmi <container id>
+docker images
+
+
+Task 2
+
+docker pull mysql
+docker images
+docker run --name test-mysql -e MYSWL_ROOT_PASSWORD=123456 -d mysql
+
+IN NEW TERMINAL
+
+docker ps
+docker exec -it test-mysql bash
+now u will see bash-5.1
+type
+mysql -u root -p
+SELECT 'hello-world!!!';
+show databases;
+use mysql
+SELECT DATABASE();
+SHOW TABLES;
+DESCRIBE db;
+SELECT NOW();

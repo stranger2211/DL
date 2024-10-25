@@ -1,0 +1,143 @@
+sudo su
+pwd
+find / -type f -name java
+you will get output as /usr/lib/jvm/java-11-openjdk-amd64/bin/java
+copy this
+
+go to jenkins
+manage jenkins > tools > JDK
+name it java_home
+and paste the above copied
+
+in Git
+tick install automatically
+
+Maven Installations
+
+name = maven_home
+tick install automatically
+install from apache
+version = 3.8.3
+click save
+
+go to jenkins
+create new item > Free style project
+name = CICD_Pipeline_Demo
+
+in source code management
+Repo URL
+https://github.com/subu123321/hello-world.git
+save it
+and click on build now and see console output
+
+
+go to your item > configuration > Build Steps
+add build step Invoke top-level Maven targets
+
+then 
+Maven Version = maven_home
+Goals = clean compile package
+save > build now > console output
+
+cd Desktop/Chirag
+ls
+cd CICD_Pipeline_Demo
+ls
+cd webapp
+ls
+cd target/
+ls
+
+
+now go back to jenkins
+configure > post-build Actions
+add post-build action
+type these = **/*.war
+save > build now > console output
+
+
+
+new terminal
+
+su root
+cd Desktop/Chirag
+sudo groupadd tomcat
+sudo useradd -s /bin/false -g tomcat -d /opt/tomcat tomcat
+cd
+cd /tmp
+curl -O https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.93/bin/apache-tomcat9.0.93.tar.gz
+sudo mkdir /opt/tomcat
+sudo tar xzvf apache-tomcat-9.0.54.tar.gz -C /opt/tomcat --strip-components=1
+cd /opt/tomcat
+sudo chgrp -R tomcat /opt/tomcat
+sudo chmod -R g+r conf
+sudo chmod g+x conf
+cd ..
+sudo chown -R sujata:sujata tomcat/
+
+cd
+cd /opt/tomcat/conf
+vi server.xml
+change the port number from 8080 to 8090
+cd
+cd /opt/tomcat/conf
+
+vi tomcat-users.xml
+paste these in these file
+<role rolename="manager-gui"/>
+<role rolename="manager-script"/>
+<role rolename="manager-jmx"/>
+<role rolename="manager-status"/>
+<user username="admin" password="admin" roles="manager-gui, managerscript, manager-jmx, manager-status"/>
+<user username="deployer" password="deployer" roles="manager-script"/>
+<user username="tomcat" password="s3cret" roles="manager-gui"/>
+
+cd
+cd /opt/tomcat/webapps/manager/META-INF
+vi context.xml
+Remove all the content present inside ‘context‘ as shown in the image below and save
+it. :wq <enter key>
+
+cd
+cd /opt/tomcat/bin/
+./shutdown.sh
+./startup.sh
+
+go again to Jenkins
+mmanage jenkins > plugins 
+search for <deploy to container> plugin in available or installed plugins and install without restart
+
+Go back to your Configure window and select the Post-build Actions
+tab. Select the ‘Add post-build action‘ drop-down button and select the ‘Deploy war/ear to a container‘ 
+type **/*.war
+
+Now click on the ‘Add Container‘ button and select the ‘Tomcat 9.x Remote‘
+as we are using version 9 of the Tomcat. Fill in the URL of the same virtual machine
+with the new port number 8090. 
+http://localhost:8090/
+
+on credentials drop-down button
+select jenkins
+In this window, fill in the username and password that we have used in the
+‘tomcat-users.xml‘ file. Fill in the ID, description and click on the button 
+
+
+GLobal(Jenkins, nodes, items,all child items,etc)
+Username =admin
+password = 123456
+ID =tomcat
+description = tomcat
+
+click on add and then Click on the credentials drop-down button and select the recently created credential. Save all the settings and again click on the ‘Build Now‘ button from the Jenkins dashboard. If the Build is successful, the war file will get deployed.
+
+if build got failed
+
+cd
+cd /opt/tomcat/webapps/manager/META-INF
+vi context.xml
+remove everthing from context
+cd ../../../bin/
+./shutdown.sh
+./startup.sh
+
+go to localhost:8090

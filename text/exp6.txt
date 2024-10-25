@@ -1,0 +1,49 @@
+STEP 1: In Jenkins Dashboard Click on Manage Jenkins -> Manage Nodes
+
+STEP 2: Select New Node and enter the name of the node in the Node Name field.
+Select Permanent Agent and click the OK button. Initially, you will get only one option, “Permanent Agent.” Once we have one or more slaves you will get the “Copy Existing Node” option. Click Create
+
+STEP3: Configure node with below details:
+pwd
+su root
+cd Desktop/Chirag
+find / -type f -name java
+copy the /usr/lib/jvm/java-11-openjdk-amd64/bin/java
+in jenkins > manage jenkins > nodes > node properties
+tick environment variables
+name = java_home
+value = /usr/lib/jvm/java-11-openjdk-amd64/bin/java
+save
+
+STEP4: On click of ‘Save’ will display the below page with error message. Here Jenkins connect with Slave node using Java Web Start and it needs a port to establish the connection.
+To configure JNLP port in global security. 
+Now goto Manage Jenkins > Security > Agents 
+TCP port for inbound agents > fixed > 50000
+
+in terminal
+sudo ufw allow 50000/tcp
+
+STEP5: Again coming back to Jenkins and navigate to Nodes -> agent2 which will display two ways to connect with Agent node.
+To establish connection, run the below command
+curl -sO http://ip_add:8080/jnlpJars/agent.jar
+
+java -jar agent.jar -url http://ip_add:8080 - secret _code_ -name agent2 -workDir "/Desktop/Chirag"
+This will establish connection with the configured Slave node
+
+Now Jenkins Slave node is ready to run any job. This node’s label name should be mentioned in the corresponding Job configuration as below:
+
+STEP 6: Create a New Job in Jenkins dashboard
+new item > freestyle 
+name it master_slave_jenkins_demo
+
+STEP 7: Configure the page with following:
+configure it
+tick the Restrict where the project can be run
+and select agent2
+
+in build steps > execute shhell
+type these command
+echo "Hello Students, welcome to session on MASTER SLAVE ARCHITECHTURE IN JENKINS!!!"
+save > build now > console output
+
+STEP 8: Goto Jenkins Dashboard->Manage Jenkins->Nodes->agent2

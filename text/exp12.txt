@@ -1,0 +1,38 @@
+ansible master
+
+cd Desktop
+cd Chirag
+chmod 400 "ansible-key.pem"
+ssh -i "ansible-key.pem" ubuntu@ec2-52-90-38-127.compute-1.amazonaws.com
+ls
+mkdir ansible-lab
+cd ansible-lab
+git clone https://github.com/sujataoak799/ansible-codes.git
+ls
+cd ansible-codes/
+ls
+nano mysqlmodule.yml
+cat user.sql
+ansible-playbook mysqlmodule.yml
+
+ansible slave
+
+mysql -u sujata -p123456
+show databases;
+use mysql;
+show tables;
+select * from db;
+exit
+
+ansible master
+
+nano deploywebsite.yml
+ansible-playbok deploywebsite.yml
+
+ansible slave
+
+cd /var/www/html
+ls
+Go to Browser: ansible-slave machine IP address/login.php
+IP address/welcome.php
+IP address/reset-password.php

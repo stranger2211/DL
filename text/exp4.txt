@@ -1,0 +1,69 @@
+cd Desktop/Chirag
+sudo su root
+apt-get update
+apt-get install openjdk-11-jdk
+java --version
+
+Step 2
+curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo tee \
+ /usr/share/keyrings/jenkins-keyring.asc > /dev/null
+echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
+ https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
+ /etc/apt/sources.list.d/jenkins.list > /dev/null
+sudo apt-get update
+sudo apt-egt install jenkins
+jenkins --version
+sytemctl start jenkins.service
+status jenkins
+sudo ufw status
+sudo ufw allow 8080
+sudo ufw enable
+sudo ufw status
+
+go to browser > localhost:8080
+to extract password
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+continue> install suggest plugins > create first admin user
+
+now on jenkins dashboard
+new item > freestyle project > source code management > select git and paste new repo url
+
+touch Test.java
+gedit Test.java
+write a hello world code
+class Test
+{
+    public static void main(String []args)
+    {
+        System.out.println("Hello World!");
+    }
+};
+
+javac Test.java
+java Test
+
+create a new repo
+get repo link
+git init
+git status
+git add .
+git status
+git config --global user.name "username"
+git config --global user.email "your@email"
+git config --list
+git commit -m "Added"
+git remote add origin https://github.com/Chirag221104/new_repo.git
+git push -u origin master
+or
+git remote set-url origin https://generated_token@github.com/Chirag22104/new_repo.git
+git push -u origin master
+then
+
+go to jenkins paste your repo link
+click Add build steo > execute shell
+javac Test.java
+java Test
+
+apply and save
+and then build now
+

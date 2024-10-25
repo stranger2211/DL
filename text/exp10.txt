@@ -1,0 +1,76 @@
+ansible master
+cd Desktop
+cd Chirag
+chmod 400 "ansible-key.pem"
+ssh -i "ansible-key.pem" ubuntu@ec2-52-90-38-127.compute-1.amazonaws.com
+
+ansible slave
+cd Desktop
+cd Chirag
+chmod 400 "ansible-key.pem"
+ssh -i "ansible-key.pem" ubuntu@ec2-3-84-176-161.compute-1.amazonaws.com
+
+ansible master
+sudo su
+ping slave	
+
+ansble slave
+sudo su 
+ping master
+
+ansible master
+apt update -y
+apt-add-repository ppa:ansible/ansible
+apt update -y
+apt-get install ansible -y
+ansible --version
+
+ansible slave 
+apt update -y
+nano /etc/ansible/hosts
+add ip address of slave machine like this
+[client_1]
+ip_address
+
+ansible master
+ssh-keygen -t rsa
+cd /root/.ssh/
+ls
+cat id_rsa.pub
+copyy this key to ansible-slave machine
+
+ansible slave
+cd /root/.ssh/
+ls
+nano authorized_keys
+paste the copied and save it
+nano /etc/ssh/sshd_config
+unhash the PermitRootLogin yes
+
+ansible master
+ansible -m ping all
+ansible client_1 -m setup
+
+ansible slave
+git --version
+apt remove git
+git --version
+
+ansible master
+ansible client_1 -m apt -a "name=git state=present" --become
+
+ansible slave
+git --version
+nano test.txt
+
+ansible master
+ansible client_1 -m apt -a "name=nano state=absent" --become
+
+ansible slave nano test.txt
+
+ansible master
+ansible client_1 -m apt -a "name=nano state=present" --become
+
+ansible slave
+nano test.txt
+

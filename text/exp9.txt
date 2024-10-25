@@ -1,0 +1,150 @@
+PART I: Containerize an application using docker CLI Commands:
+
+cd Desktop
+cd Chirag
+sudo su
+
+STEP1: Download nginx official image and then containerized your web application in it.
+docker images
+docker pull nginx
+
+STEP2: Run the container from nginx image
+docker run --name webserver1 nginx
+docker ps -a
+
+In another terminal
+docker ps -a
+docker remove <container_id>
+
+in terminal 1
+docker run -it -p 3037:80 --name server1 nginx:latesh bash
+
+in another terminal 
+docker ps -a
+cd /usr/share/nginx/html/
+ls
+mv index.html index.html_backup
+nano index.html
+apt install nano
+apt update
+nano index.html
+write these code inside it
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title> Login Page </title>
+<style>
+Body {
+ font-family: Calibri, Helvetica, sans-serif;
+ background-color: pink;
+}
+button {
+ background-color: #4CAF50;
+ width: 100%;
+ color: orange;
+ padding: 15px;
+ margin: 10px 0px;
+ border: none; 
+ cursor: pointer;
+ }
+ form {
+ border: 3px solid #f1f1f1;
+ }
+ input[type=text], input[type=password] {
+ width: 100%;
+ margin: 8px 0;
+ padding: 12px 20px;
+ display: inline-block;
+ border: 2px solid green;
+ box-sizing: border-box;
+ }
+ button:hover {
+ opacity: 0.7;
+ }
+ .cancelbtn {
+ width: auto;
+ padding: 10px 18px;
+ margin: 10px 5px;
+ }
+
+
+ .container {
+ padding: 25px;
+ background-color: lightblue;
+ }
+</style>
+</head>
+<body>
+ <center> <h1> <b>Student Login Form Designed by Sujata Oak</b> </h1> </center>
+ <form>
+ <div class="container">
+ <label>Username : </label>
+ <input type="text" placeholder="Enter Username" name="username" required>
+ <label>Password : </label>
+ <input type="password" placeholder="Enter Password" name="password" required>
+ <button type="submit">Login</button>
+ <input type="checkbox" checked="checked"> Remember me
+ <button type="button" class="cancelbtn"> Cancel</button>
+ Forgot <a href="#"> password? </a>
+ </div>
+ </form>
+</body>
+</html> 
+
+
+nginx status
+nginx start
+
+STEP 3: GOTO BROWSER: localhost:3031
+go to browser and type
+localhost:3037
+docker stop <container id>
+reload the page
+docker restart <container id>
+docker exec <container_id> service nginx start
+
+go to browser and refresh it
+docker stop <container id>
+docker rm -f $(docker ps -aq)
+to verify is it removed or not
+docker ps -a
+
+
+PART 2: DOCKERFILE
+
+cd Desktop/Chirag
+sudo su
+ls
+cd docker-nginx/
+ls
+nano Dockerfile
+#these should be there inside Dockerfile
+
+\FROM ubuntu
+LABEL author="Sujata Oak"
+RUN apt-get update
+RUN apt-get install nginx -y
+COPY . /var/www/html/
+EXPOSE 80
+CMD ["nginx","-g","daemon off;"]
+
+docker build -t sujatadocker2024/websitetest .
+docker images
+
+Step 3: Run the container now:
+docker run -d -p 3038:80 --name chirag_website <container id>
+docker ps
+go to browser 
+localhost:3038
+
+push image to dockerhub
+docker push sujatadocker2024/websitetest
+dcoker tag da5(image id) 18061977/apsit31082024(repository):v1(tag)
+docker images
+docker login
+docker push 18061977/apsit31082024:v1
+docker push (repository):(tag)
+
+go to docker hub page and refresh it
+
