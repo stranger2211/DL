@@ -1,4 +1,10 @@
-Experiment 1 (Introduction to DevOps)
+Experiment 1: DevOps Basics
 
-Theory: DevOps is a methodology combining software development and IT operations to increase efficiency, security, and reliability of software delivery. It emphasizes collaboration, automation, and continuous integration to deliver high-quality software frequently. The DevOps lifecycle includes phases like continuous development, integration, testing, deployment, and monitoring.
-Conclusion: In this experiment, I learned about the DevOps lifecycle and the importance of each phase, such as continuous development and integration, to enhance efficiency in software deployment. Various DevOps tools like Git, Docker, and Jenkins were also introduced to facilitate these processes​(exp1).
+Objective: To understand DevOps, its lifecycle, and the tools associated with it.
+Theory: DevOps merges software development with IT operations to increase efficiency and security in deployment. It emphasizes phases such as continuous development, testing, integration, deployment, monitoring, and feedback.
+Commands:
+Plan: Define objectives and requirements.
+Code: Write and test code.
+Build: Compile code.
+Deploy: Release code into production.
+Conclusion: Learned the principles of DevOps and the functions of key tools like Git, Jenkins, Docker, etc.​(exp1)
