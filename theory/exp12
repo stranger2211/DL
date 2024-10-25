@@ -1,0 +1,14 @@
+Experiment 12: Deploying a Website using Ansible and MySQL
+Theory: Ansible, an infrastructure-as-code tool, uses playbooks (YAML files) to automate server setup, application deployment, and configuration tasks. Ansible’s modular approach supports components like MySQL modules for database provisioning, and web file deployment.
+
+Key Components:
+
+Ansible Modules: Small scripts for tasks like installing software.
+Playbooks: Define the desired server state in YAML format, automating tasks like MySQL setup.
+Procedure:
+
+Write playbooks (mysqlmodule.yml for MySQL, deploywebsite.yml for website).
+Run ansible-playbook commands to execute playbooks, set up the MySQL server, and deploy website files.
+Test website functionality on the target machine.
+Conclusion: We successfully used Ansible playbooks to deploy a website by configuring a MySQL database server and automating the code deployment.
+
